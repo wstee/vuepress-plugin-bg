@@ -1,13 +1,13 @@
 <template>
-  <transition name="fade">
-    <canvas ref="canvasRef" class="bg"></canvas>
-  </transition>
+  <bg-wrapper :options="props.options">
+    <canvas ref="canvasRef"></canvas>
+  </bg-wrapper>
 </template>
 <script lang="ts" setup>
 import { ref, onMounted} from 'vue';
-import { BgOptions, LineOptions } from '../../types';
-import { isPhone } from '../utils';
-const props = defineProps<{ options: BgOptions<LineOptions> }>()
+import { BgOptions } from '../../types';
+import BgWrapper from './BgWrapper.vue';
+const props = defineProps<{ options: BgOptions }>()
 const options = props.options
 const canvasRef = ref()
 function color2Rgb(color: string) {
@@ -32,11 +32,7 @@ function color2Rgb(color: string) {
   }
 }
 onMounted(() => {
-    if (isPhone()) return
-
     let winWidth, winHeight, u: {x: number | null; y: number | null; xa?: number; ya?: number; max: number }[], s: {x: number; y: number; xa: number; ya: number; max: number }[] = [], oCanvas = canvasRef.value,
-      zIndex = options.zIndex || -1,
-      opacity = options.opacity || 0.9,
       color = options.options?.color ? color2Rgb(options.options.color) : '#666',
       count = options.options?.count || 166,
       l,
@@ -85,7 +81,6 @@ onMounted(() => {
       });
         animate(dwawLine)
     }
-    oCanvas.style.cssText = "z-index:" + zIndex + ";opacity:" + opacity;
     getWindowSize();
     window.onresize = getWindowSize;
     window.onmousemove = function (e) {
@@ -119,11 +114,3 @@ onMounted(() => {
       100)
 })
 </script>
-<style scoped>
-  .bg {
-    position:fixed;
-    top:0;
-    left:0;
-    pointer-events: none;
-  }
-</style>

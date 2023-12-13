@@ -1,13 +1,16 @@
 {
   "name": "vuepress-plugin-bg",
-  "version": "2.0.0-rc.0",
-  "description": "VuePress plugin - bg",
+  "version": "2.0.0-rc.1",
+  "description": "Background Plugin for vuepress theme",
   "main": "lib/node/index.js",
   "types": "lib/node/index.d.ts",
   "type": "module",
   "files": [
     "lib"
   ],
+  "directories": {
+    "lib": "lib"
+  },
   "scripts": {
     "build": "pnpm build:tsc & pnpm run copy",
     "build:tsc": "tsc -b tsconfig.build.json",
@@ -21,12 +24,14 @@
     "bg"
   ],
   "dependencies": {
+    "@tsparticles/engine": "^3.0.2",
+    "@tsparticles/interaction-light": "^3.0.2",
+    "@tsparticles/path-polygon": "^3.0.2",
     "@vuepress/client": "2.0.0-rc.0",
     "@vuepress/core": "2.0.0-rc.0",
     "@vuepress/utils": "2.0.0-rc.0",
     "tsparticles": "^3.0.2",
-    "vue": "^3.3.4",
-    "vue3-particles": "^2.12.0"
+    "vue": "^3.3.4"
   },
   "author": {
     "name": "santino",
@@ -42,6 +47,11 @@
     "rimraf": "^5.0.5"
   },
   "homepage": "",
-  "repository": {},
-  "bugs": {}
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wstee/vuepress-plugin-bg.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wstee/vuepress-plugin-bg/issues"
+  }
 }

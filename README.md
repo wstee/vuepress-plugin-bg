@@ -52,3 +52,12 @@ export default defineUserConfig({
 }
 ```
 
+### ``particles``
+
+[tsparticles官网](https://particles.js.org/)
+
+#### 快捷设置
+
+官网右上角，选择预设，然后自行调整后，点击导出，拿到配置json文件
+
+![1702370910523(1)-2023-12-12](https://res.wstee.com/blog/imgs/1702370910523(1)-2023-12-12.png)
