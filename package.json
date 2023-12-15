@@ -1,6 +1,6 @@
 {
   "name": "vuepress-plugin-bg",
-  "version": "2.0.0-rc.1",
+  "version": "2.0.0-rc.2",
   "description": "Background Plugin for vuepress theme",
   "main": "lib/node/index.js",
   "types": "lib/node/index.d.ts",
